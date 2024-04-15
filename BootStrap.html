@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="card" style="width: 50%; margin:auto">
+    <div class="card-header">
+      <h5>Welcome Card</h5>
+    </div>
+    <div class="card-body" id="card-wrap">
+      <h5 class="card-title">Welcome to my Website</h5>
+      <p class="card-text">Register User Here!</p>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="width: 100%;">
+        Register
+      </button>
+    </div>
+    <div>
+      <p class="card-text" id="Isuck" style="text-align: center;"><br>
+        <h5 class="card-title" id="Aldick" style="text-align: center;"></h5>
+      </p>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="username" class="form-label">Name</label>
+              <input type="text" class="form-control" id="UserName" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="usersection" class="form-label">Section</label>
+              <input type="text" class="form-control" id="UserSection">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="register" onclick="registerfunc()" data-dismiss="modal" >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Green button to go back to index.html -->
+  <div class="container mt-3">
+    <a href="index.html" class="btn btn-success">Back to Index</a>
+  </div>
+
+  <script>
+    function registerfunc() {
+      var a = document.getElementById("card-wrap");
+      a.style.display = "none";
+      var b = document.getElementById("UserName").value;
+      var c = document.getElementById("UserSection").value;
+      var d = document.getElementById("Aldick").innerHTML = b + " | " + c;
+      var e = document.getElementById("Isuck").innerHTML = "You are successfully registered!";
+    }
+  </script>
+</body>
+</html>

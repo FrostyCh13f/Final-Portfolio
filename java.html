@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bar + Buttons with Event Listener</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<style>
+  .progress {
+    height: 70px;
+  }
+
+  #button1 {
+    background-color: red;
+    margin-top: 30px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #button2 {
+    background-color: red;
+    margin-top: 30px;
+    margin-left: 250px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #button3 {
+    background-color: red;
+    margin-top: 30px;
+    margin-left: 250px;
+    height: 50px;
+    width: 200px;
+  }
+
+  #backToIndex {
+    background-color: green;
+    margin-top: 30px;
+    height: 50px;
+    width: 200px;
+  }
+</style>
+
+<body>
+  <div class="container mt-5">
+    <h3>Progress Bar + Buttons with Event Listener</h3>
+    <div class="progress">
+      <div id="progress-bar" class="progress-bar" style="width: 0%;">0%</div>
+    </div>
+    <button id="button1" class="btn btn-primary">Item 1</button>
+    <button id="button2" class="btn btn-primary">Item 2</button>
+    <button id="button3" class="btn btn-primary">Item 3</button>
+  </div>
+
+  <div class="container mt-3">
+    <!-- Button to go back to index.html -->
+    <a href="index.html" class="btn btn-success" id="backToIndex">Back to Index</a>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const progressBar = document.getElementById('progress-bar');
+    const button1 = document.getElementById('button1');
+    const button2 = document.getElementById('button2');
+    const button3 = document.getElementById('button3');
+    
+    button1.addEventListener('click', () => {
+      progressBar.style.width = '33%';
+      progressBar.textContent = '33%';
+    });
+
+    button2.addEventListener('click', () => {
+      progressBar.style.width = '66%';
+      progressBar.textContent = '66%';
+    });
+
+    button3.addEventListener('click', () => {
+      progressBar.style.width = '100%';
+      progressBar.textContent = '100%';
+    });
+  </script>
+</body>
+
+</html>

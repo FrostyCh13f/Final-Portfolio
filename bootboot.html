@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Record Management</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <h3>Add Record</h3>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div>
+          <label for="course">Course:</label>
+          <input type="text" class="form-control" id="course">
+        </div>
+        <div>
+          <label for="section">Section:</label>
+          <input type="text" class="form-control" id="section">
+        </div>
+        <button class="btn btn-primary mt-2" id="saveRecord">Save Record</button>
+        <!-- Return to Index Button -->
+        <a href="#" class="btn btn-secondary mt-2" id="returnToIndex">Return to Index</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3>Records</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="recordTableBody">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#saveRecord").click(function () {
+      var name = $("#name").val();
+      var course = $("#course").val();
+      var section = $("#section").val();
+      var newRow = $("<tr>");
+      if (name != '') {
+        if(course != '') {
+          if(section != ''){
+            newRow.append("<td>" + name + "</td>");
+            newRow.append("<td>" + course + "</td>");
+            newRow.append("<td>" + section + "</td>");
+            newRow.append('<td><button class="btn btn-danger btn-sm deleteRecord">DELETE</button></td>');
+          }else{
+            alert("Please enter a valid input")
+          }
+        }else{
+          alert("Please enter a valid input")
+        }
+           
+      }else{
+        alert("Please enter a valid input")
+      }
+      
+      $("#recordTableBody").append(newRow);
+
+      $("#name, #course, #section").val("");
+    });
+
+    $("#recordTableBody").on("click", ".deleteRecord", function () {
+      $(this).closest("tr").remove();
+    });
+
+    // Return to Index Button Functionality
+    $("#returnToIndex").click(function() {
+      window.location.href = "index.html"; // Change "index.html" to the actual filename of your index file
+    });
+  });
+</script>
+
+</body>
+</html>
